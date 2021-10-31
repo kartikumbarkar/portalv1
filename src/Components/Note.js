@@ -1,81 +1,79 @@
-import React from 'react'
-import './App.css'
-import Draggable from 'react-draggable'
+import React, { Component } from 'react';
+import Draggable from 'react-draggable';
 
-export default class Note extends React.Component {
+class Note extends Component {
 
-            constructor(props) {
-                super(props);
-                this.state = { editing: false };
-            }
+  state = {
+    editing : false,
+  }
 
-            componentWillMount() {
-                this.style = {
-                    right: this.randomBetween(0, window.innerWidth - 150, 'px'),
-                    top: this.randomBetween(0, window.innerHeight -150, 'px')
-                }
-            }
+  componentDidMount(){
+    this.setState({
+      id : this.props.id,
+      content : this.props.content
+    })
+  }
 
-            componentDidUpdate() {
-                if (this.state.editing) {
-                    this.refs.newText.focus()
-                    this.refs.newText.select()
-                }
-            }
+  componentWillMount() {
+		this.style = {
+			right: this.randomBetween(0, window.innerWidth - 150, 'px'),
+			top: this.randomBetween(0, window.innerHeight - 150, 'px'),
+		}
+    }
+    randomBetween(x, y, s) {
+		return x + Math.ceil(Math.random() * (y-x)) + s
+    }
 
-            shouldComponentUpdate(nextProps, nextState) {
-                return this.props.children !== nextProps.children || this.state !== nextState
-            }
+  edit = () => {
+    this.setState({
+      editing : true
+    })
+  }
 
-            randomBetween(x, y, s) {
-                return (x + Math.ceil(Math.random() * (y-x))) + s
-            }
+  remove = () => {
+    this.props.removeNote(this.props.id)
+  }
 
-            edit() {
-                this.setState({editing: true})
-            }
+  update = (e) => {
+    this.setState({
+      content : e.target.value
+    })
+  }
 
-            save() {
-                this.props.onChange(this.refs.newText.value, this.props.id)
-                this.setState({editing: false})
-            }
+  save = (e) => {
+    e.preventDefault()
+    this.props.saveNote(this.props.id,this.props.content)
+    this.setState({
+      editing :false
+    })
+  }
 
-            remove() {
-                this.props.onRemove(this.props.id)
-            }
+  render() {
+    return (
+      (this.state.editing) ? (
 
-            renderForm() {
-                return (
-                    <div className="note"
-                         style={this.style}>
-                      <textarea ref="newText"
-                                defaultValue={this.props.children}>
-                      </textarea>
-                      <button onClick={this.save.bind(this)}>SAVE</button>
-                    </div>
-                )
-            }
+      <div className="note" style={this.style}>
+				<form onSubmit={this.save}>
+            <textarea type="textarea" onChange={this.update} value={this.state.content}></textarea>
+					<button type="submit" id="save" onClick={this.save}>Save</button>
+				</form>
+			</div>
 
-            renderDisplay() {
-                return (
-                    <div className="note"
-                         style={this.style}>
-                        <p>{this.props.children}</p>
-                        <span>
-                          <button onClick={this.edit.bind(this)}>EDIT</button>
-                          <button onClick={this.remove.bind(this)}>X</button>
-                        </span>
-                    </div>
-                    )
-            }
 
-            render() {
-              return ( <Draggable>
-                       {(this.state.editing) ? this.renderForm()
-                                          : this.renderDisplay()}
-                       </Draggable>
-                )
+      ) : (
+        <Draggable>
+        <div className="note" style={this.style}>
+					<p>{this.state.content}</p>
+					<span>
+						<button onClick={this.edit} id="edit">E</button>
+						<button onClick={this.remove} id="remove">X</button>
+					</span>
+				</div>
+        </Draggable>
+    )
 
-            }
-        }
-        
+    );
+  }
+}
+
+export default Note;

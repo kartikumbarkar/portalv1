@@ -1,68 +1,106 @@
+
+
+
 body,
 html,
 div.board,
 div#react-container {
-  height: 100%;
-  overflow: hidden;
+    height: 100%;
+    overflow: auto;
 }
 
 body {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 div.board {
-  background-color: 'brown';
-  width: 100%;
-  background: #eab92d;
+    background-color: brown;
+    width: 100%;
+    height: 850px;
+    background: #383838;
+    /* background: -moz-radial-gradient(center, ellipse cover, #383838 57%, #c79810 99%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(57%, #383838), color-stop(99%, #c79810));
+    background: -webkit-radial-gradient(center, ellipse cover, #383838 57%, #c79810 99%);
+    background: -o-radial-gradient(center, ellipse cover, #383838 57%, #c79810 99%);
+    background: -ms-radial-gradient(center, ellipse cover, #383838 57%, #c79810 99%);
+    background: radial-gradient(ellipse at center, #383838 57%, #c79810 99%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#383838', endColorstr='#c79810', GradientType=1); */
+
 }
 
 div.note {
-  height: 150px;
-  width: 150px;
-  background-color: yellow;
-  margin: 2px 0;
-  position: absolute;
-  cursor: -webkit-grab;
-  box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
-  overflow: hidden;
+    height: 150px;
+    width: 150px;
+    background-color: #f5da59;
+    margin: 2px 0;
+    position: absolute;
+    border-radius: 4px;
+    cursor: -webkit-grab;
+    -webkit-box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
+    box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
 }
 
 div.note:active {
-  cursor: -webkit-grabbing;
+    cursor: -webkit-grabbing;
 }
 
 div.note p {
-  margin: 0;
-  font-size: 22px;
-  padding: 5px;
-  font-family: "Shadows Into Light", Arial;
+    font-size: 22px;
+    padding: 5px;
+    font-family: "Shadows Into Light", Arial;
 }
 
 div.note:hover > span {
-  opacity: 1;
+    opacity: 1;
 }
 
 div.note > span {
-  position: absolute;
-  bottom: 2px;
-  right: 2px;
-  opacity: 0;
-  transition: opacity .25s linear;
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    opacity: 0;
+    transition: opacity .25s linear;
 }
 
 div.note button {
-  margin: 2px;
+    margin: 2px;
+    
 }
 
 div.note > textarea {
-  height: 75%;
-  background: rgba(255, 255, 255, .5);
+    height: 75%;
+    background: rgba(255, 255, 255, .5);
 }
 
-.board > button {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  font-size: 1.5em;
+div.board button {
+  color: #fff;
+  font-size: 14px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.55);
+  
+}
+
+#add {
+  background-color: #5cb85c;
+  height: 5em;
+  width: 5em;
+  border-radius: 3em;
+  margin : 20px;
+  margin-left:10rem;
+}
+
+#edit {
+  background-color: #337ab7;
+}
+
+#save {
+  background-color: #5cb85c;
+}
+
+#remove {
+  background-color: #d9534f;
+}
+
+.note:hover {
+    cursor: pointer;
 }
