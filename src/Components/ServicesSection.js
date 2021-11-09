@@ -11,7 +11,7 @@ function ServicesSection() {
     return (
         <InnerLayout>
             <ServicesSectionStyled>
-                <Title title={'Your'} span={'Courses'} />
+                <Title title={'Our'} span={'Courses'} />
                 <div className="services">
                     <ServiceCard 
                         image={design} 

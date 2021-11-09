@@ -36,10 +36,40 @@ class Board extends Component {
 	render() {
 		return (
             <MainContainer>
+<<<<<<< Updated upstream
 			<div className="board">
             <Content>
               Hello
             </Content>
+=======
+            
+			<div className="board">
+             <Head>Webinars Available</Head>
+            <Content>
+              <Info>Topic name : Webdevelopment</Info>
+              <Info> Host Name : Nikhil Sir</Info>
+              <Info> Date : 14/12/2021</Info>
+              <Info> Time : 10 am</Info>
+              <Info> Hosted By : Ycce College</Info>
+
+            </Content>
+            <Content1>
+              <Info>Topic name : Artificial Intelligence</Info>
+              <Info> Host Name : ABC Sir</Info>
+              <Info> Date : 14/12/2021</Info>
+              <Info> Time : 10 am</Info>
+              <Info> Hosted By : Ycce College</Info>
+
+            </Content1>
+            <Content2>
+              <Info>Topic name : Game dev</Info>
+              <Info> Host Name : XYZ Sir</Info>
+              <Info> Date : 14/12/2021</Info>
+              <Info> Time : 10 am</Info>
+              <Info> Hosted By : Ycce College</Info>
+
+            </Content2>
+>>>>>>> Stashed changes
 				{this.state.notes.map(note => {
           return <Note key={note.id} id={note.id} content={note.content} removeNote={this.removeNote} saveNote={this.saveNote} />
         })}
@@ -52,6 +82,7 @@ class Board extends Component {
 		)
 	}
 }
+<<<<<<< Updated upstream
 export const MainContainer =styled.div`
 margin-top: 5rem;
 height:500px;
@@ -61,6 +92,29 @@ export const Content =styled.div`
  height: 150px;
     width: 150px;
     background-color: #f5da59;
+=======
+export const Head =styled.div`
+
+color:lightcyan;
+font-weight:bold;
+margin-left: 45%;
+font-size: 25px;
+
+
+`
+export const MainContainer =styled.div`
+margin-top: 5rem;
+height:500px;
+background-image: url(./images/dark.jpg);
+`
+export const Content =styled.div`
+    height: 200px;
+    width: 400px;
+    background-color: #191D2B;
+    border-left: 1px solid #2e344e;
+    border-top: 8px solid #2e344e;
+    border-right: 1px solid #2e344e;
+    border-bottom: 1px solid #2e344e;
     margin: 2px 0;
     position: absolute;
     border-radius: 4px;
@@ -68,7 +122,81 @@ export const Content =styled.div`
     -webkit-box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
     box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
     justify-content: center;
+    right:70%;
+    top:30%;
+    &:hover{
+        border-top: 8px solid chocolate;
+        transform: translateY(3px);
+    }
+`
+export const Content1 =styled.div`
+height: 200px;
+    width: 400px;
+    background-color: #191D2B;
+    border-left: 1px solid #2e344e;
+    border-top: 8px solid #2e344e;
+    border-right: 1px solid #2e344e;
+    border-bottom: 1px solid #2e344e;
+>>>>>>> Stashed changes
+    margin: 2px 0;
+    position: absolute;
+    border-radius: 4px;
+    cursor: -webkit-grab;
+    -webkit-box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
+    box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
+    justify-content: center;
+<<<<<<< Updated upstream
     right:50%;
     top:20%;
 `
+=======
+    right:10%;
+    top:30%;
+    &:hover{
+        border-top: 8px solid chocolate;
+        transform: translateY(3px);
+    }
+
+`
+export const Content2 =styled.div`
+height: 200px;
+    width: 400px;
+    background-color: #191D2B;
+    border-left: 1px solid #2e344e;
+    border-top: 8px solid #2e344e;
+    border-right: 1px solid #2e344e;
+    border-bottom: 1px solid #2e344e;
+    margin: 2px 0;
+    position: absolute;
+    border-radius: 4px;
+    cursor: -webkit-grab;
+    -webkit-box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
+    box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
+    justify-content: center;
+    right:40%;
+    top:30%;
+    &:hover{
+        border-top: 8px solid chocolate;
+        transform: translateY(3px);
+    }
+
+
+`
+export const Info =styled.div`
+color: powderblue;
+            font-size: 20px;
+            padding: 5px;
+            position: relative;
+            &::after{
+                content: "";
+                width: 8rem;
+                background-color: chocolate;
+                height: 6px;
+                position: absolute;;
+                left: 0;
+                bottom: 0;
+                border-radius: 10px;
+`
+
+>>>>>>> Stashed changes
 export default Board;

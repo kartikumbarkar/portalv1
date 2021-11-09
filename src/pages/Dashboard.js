@@ -2,7 +2,7 @@ import React from 'react'
 import {MainLayout} from '../styles/Layouts';
 import ServicesSection from '../Components/ServicesSection';
 import styled from 'styled-components';
-
+import red from '../images/red.jpg'
 const Dashboard = () => {
     return (
         <MainContainer>
@@ -21,7 +21,7 @@ const Dashboard = () => {
 
 export default Dashboard
 export const MainContainer = styled.div`
- background: #0c0c0c;
+background-image:url(${red});
   display: flex;
   justify-content: center;
   align-items: center;

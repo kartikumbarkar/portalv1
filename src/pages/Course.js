@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { PieChart, Pie, Sector } from 'recharts';
-
+import red from '../images/red.jpg'
 const chata = [
   { name: 'Group A', value: 400 },
   { name: 'Group B', value: 300 },
@@ -54,23 +54,23 @@ const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
 const data = [
   {
-    name: 'Hearts',
-    value: 4000,
+    name: 'Webdev',
+    value: 400,
 
   },
   {
-    name: 'Clubs',
-    value: 3000,
+    name: 'Gamedev',
+    value: 300,
  
   },
   {
-    name: 'Diamonds',
-    value: 2000,
+    name: 'AI',
+    value: 200,
   
   },
   {
-    name: 'Spades',
-    value: 2780,
+    name: 'Other Courses',
+    value: 278,
 
   },
   
@@ -79,6 +79,7 @@ const data = [
 function Course() {
     return (
       <MainContainer>
+        <Data> Students Enrolled</Data>
       <ResponsiveContainer width="95%" aspect={3}>
         <BarChart
           width={100}
@@ -91,12 +92,14 @@ function Course() {
             bottom: 15,
           }}
         >
-              <XAxis dataKey="name" fill="white" />
+              <XAxis dataKey="name" fill="#fff" />
               <YAxis />
-              <Bar dataKey="value" fill="blue" />
+              <Bar dataKey="value" fill="chocolate" />
         </BarChart>
       </ResponsiveContainer>
+      <Data1>Some Stats</Data1>
       <Content>
+      
       <PieChart width={800} height={400} >
         <Pie
           data={data}
@@ -160,11 +163,9 @@ function Course() {
 export default Course;
 export const MainContainer = styled.div`
 margin-top: 5rem;
-background-color:#000;
-height:500px;
+background-image:url(${red});
 `
 export const Content = styled.div`
- background-color: black;
  display: grid;
         grid-template-columns: repeat(3, 2fr);
         grid-gap: 0.01rem;
@@ -179,4 +180,18 @@ export const Content = styled.div`
         }
        
 
+`
+export const Data=styled.div`
+margin-left: 45%;
+color: lightcyan;
+font-weight: bold;
+font-size:30px;
+
+
+`
+export const Data1=styled.div`
+margin-left: 47.5%;
+color: lightcyan;
+font-weight: bold;
+font-size:30px;
 `
