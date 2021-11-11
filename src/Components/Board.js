@@ -36,12 +36,6 @@ class Board extends Component {
 	render() {
 		return (
             <MainContainer>
-<<<<<<< Updated upstream
-			<div className="board">
-            <Content>
-              Hello
-            </Content>
-=======
             
 			<div className="board">
              <Head>Webinars Available</Head>
@@ -69,7 +63,6 @@ class Board extends Component {
               <Info> Hosted By : Ycce College</Info>
 
             </Content2>
->>>>>>> Stashed changes
 				{this.state.notes.map(note => {
           return <Note key={note.id} id={note.id} content={note.content} removeNote={this.removeNote} saveNote={this.saveNote} />
         })}
@@ -82,17 +75,6 @@ class Board extends Component {
 		)
 	}
 }
-<<<<<<< Updated upstream
-export const MainContainer =styled.div`
-margin-top: 5rem;
-height:500px;
-
-`
-export const Content =styled.div`
- height: 150px;
-    width: 150px;
-    background-color: #f5da59;
-=======
 export const Head =styled.div`
 
 color:lightcyan;
@@ -137,7 +119,6 @@ height: 200px;
     border-top: 8px solid #2e344e;
     border-right: 1px solid #2e344e;
     border-bottom: 1px solid #2e344e;
->>>>>>> Stashed changes
     margin: 2px 0;
     position: absolute;
     border-radius: 4px;
@@ -145,11 +126,6 @@ height: 200px;
     -webkit-box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
     box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
     justify-content: center;
-<<<<<<< Updated upstream
-    right:50%;
-    top:20%;
-`
-=======
     right:10%;
     top:30%;
     &:hover{
@@ -197,6 +173,4 @@ color: powderblue;
                 bottom: 0;
                 border-radius: 10px;
 `
-
->>>>>>> Stashed changes
 export default Board;

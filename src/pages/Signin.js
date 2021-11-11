@@ -1,11 +1,32 @@
-import React from 'react'
+import React ,{useState} from 'react'
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-
-const Signin = () => {
+import { useHistory } from "react-router-dom"
+import axios from "axios"
+const Signin = ({ setLoginUser}) => {
+  const history = useHistory()
+  const [ user, setUser] = useState({
+    email:"",
+    password:""  
+})
+const handleChange = e => {
+  const { name, value } = e.target
+  setUser({
+      ...user,
+      [name]: value
+  })
+}
+const signin = () => {
+  axios.post("http://localhost:9002/signin", user)
+  .then(res => {
+      alert(res.data.message)
+      setLoginUser(res.data.user)
+      history.push("/")
+  })
+} 
     return (
-        <>
-     
+        <div className="signin"> 
+        {console.log("User", user)}  
         <Container id="signin">
         <FormWrap>
           <Icon to='/'>/</Icon>
@@ -14,17 +35,21 @@ const Signin = () => {
               <FormH1>Sign in to your account</FormH1>
               
               <FormLabel htmlFor='for'>Email</FormLabel>
-                <FormInput htmlFor='email' required />
+                <FormInput htmlFor='email' required 
+                   name="email"value={user.email}onChange={handleChange}
+                />
               <FormLabel htmlFor='for'>Password</FormLabel>
-                <FormInput htmlFor='password' required />
-              <FormButton type='submit'>Continue</FormButton>
+                <FormInput htmlFor='password' required name="password"value={user.password}onChange={handleChange}
+                 />
+              <FormButton type='submit'onClick={signin}>Signin</FormButton>
+              <Text>or</Text>
+              <FormButton type='button'onClick={() => history.push("/Signup")}>Register</FormButton>
               <Text>Forgot password</Text>
             </Form>
           </FormContent>
         </FormWrap>
-      </Container>
-     
-        </>
+      </Container>  
+        </div>
     )
 }
 
@@ -46,7 +71,7 @@ export const Container = styled.div`
     left: 0;
     background: #00008C;
   );
-`;
+`
 export const FormWrap = styled.div`
   height: 100%;
   display: flex;

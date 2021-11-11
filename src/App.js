@@ -11,6 +11,7 @@ import Dashboard from './pages/Dashboard';
 import React,{useState} from 'react'
 import Board from '../src/Components/Board';
 function App() {
+  const [ user, setLoginUser] = useState({})
   const [isOpen, setIsOpen] = useState(false)
   
     const toggle = () =>{
@@ -22,8 +23,11 @@ function App() {
             <Navbar toggle={toggle}/>
       <Switch>
         <Route path='/' component={Home} exact />
+        {
+              user && user._id ? <Home setLoginUser={setLoginUser} /> : <Signin setLoginUser={setLoginUser}/>
+        }
         <Route path='/Home' component={Board} exact />
-        <Route path='/signup' component={SignupPage} exact />
+        <Route path='/Signup' component={SignupPage} exact />
         <Route path='/Signin' component={Signin} exact />
         <Route path='/course' component={Course} exact />
         <Route path='/Dashboard' component={Dashboard} exact />

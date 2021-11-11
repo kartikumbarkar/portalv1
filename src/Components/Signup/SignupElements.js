@@ -6,7 +6,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0 30px;
-  height: 1000px;
+  height: 1500px;
   position: relative;
   z-index: 1;
   }
@@ -54,7 +54,7 @@ export const FormContent = styled.div`
 `
 export const Form = styled.form`
   background-color: #010101;
-  max-width: 400px;
+  max-width: 600px;
   height: auto;
   width: 100%;
   z-index: 1;

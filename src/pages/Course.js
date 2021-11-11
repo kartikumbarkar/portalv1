@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { PieChart, Pie, Sector } from 'recharts';
+import { BarChart, Bar, Cell, XAxis, YAxis, ResponsiveContainer } from 'recharts';
+import { PieChart, Pie } from 'recharts';
 import red from '../images/red.jpg'
 const chata = [
   { name: 'Group A', value: 400 },
