@@ -85,11 +85,15 @@ font-size: 25px;
 
 `
 export const MainContainer =styled.div`
+position: relative;
+display: grid;
 margin-top: 5rem;
 height:500px;
 background-image: url(./images/dark.jpg);
 `
 export const Content =styled.div`
+position: fixed;
+    
     height: 200px;
     width: 400px;
     background-color: #191D2B;
@@ -112,7 +116,7 @@ export const Content =styled.div`
     }
 `
 export const Content1 =styled.div`
-height: 200px;
+    height: 200px;
     width: 400px;
     background-color: #191D2B;
     border-left: 1px solid #2e344e;

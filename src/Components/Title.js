@@ -12,7 +12,7 @@ function Title({title, span}) {
 const TitleStyled = styled.div`
     position: relative;
     h2{
-        color: red;
+        color: chocolate;
         font-size: 3.1rem;
         font-weight: 600;
         text-transform: uppercase;

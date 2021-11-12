@@ -69,8 +69,9 @@ export const Container = styled.div`
     right: 0;
     bottom: 0;
     left: 0;
-    background: #00008C;
-  );
+    background: rgb(37,46,162);
+background: radial-gradient(circle, rgba(37,46,162,1) 14%, rgba(230,82,222,0.9419117988992471) 49%, rgba(219,64,187,1) 50%, rgba(11,44,203,1) 93%);
+  
 `
 export const FormWrap = styled.div`
   height: 100%;

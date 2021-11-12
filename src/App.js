@@ -22,15 +22,24 @@ function App() {
       <Sidebar isOpen={isOpen} toggle={toggle}/>
             <Navbar toggle={toggle}/>
       <Switch>
-        <Route path='/' component={Home} exact />
+        <Route path='/' component={Home} exact >
         {
               user && user._id ? <Home setLoginUser={setLoginUser} /> : <Signin setLoginUser={setLoginUser}/>
         }
-        <Route path='/Home' component={Board} exact />
-        <Route path='/Signup' component={SignupPage} exact />
-        <Route path='/Signin' component={Signin} exact />
-        <Route path='/course' component={Course} exact />
-        <Route path='/Dashboard' component={Dashboard} exact />
+        </Route>
+        <Route path='/Home' component={Board} exact >
+        </Route>
+        <Route path='/Signup' component={SignupPage} exact >
+        </Route>
+        <Route path='/Signin' component={Signin} setLoginUser={setLoginUser} exact >
+        {
+              user && user._id ? <Home setLoginUser={setLoginUser} /> : <Signin setLoginUser={setLoginUser}/>
+        }
+        </Route>
+        <Route path='/course' component={Course} exact >
+        </Route>
+        <Route path='/Dashboard' component={Dashboard} exact >
+        </Route>
       </Switch>
     </Router>
   );
